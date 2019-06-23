@@ -80,7 +80,7 @@ autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 autocmd Filetype svelte setlocal ts=2 sts=2 sw=2
 
 let g:deoplete#enable_at_startup = 1
-let g:ruby_host_prog = 'rvm default do neovim-ruby-host'
+let g:ruby_host_prog = 'rvm all do neovim-ruby-host'
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 let b:ale_linter_aliases = {'svelte': ['javascript']}
