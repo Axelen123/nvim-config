@@ -28,7 +28,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('deoplete-plugins/deoplete-zsh')
   
   " typescript
-  call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': ['typescript', 'svelte']})
+  call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['typescript', 'svelte']})
 
   " scrooloose
