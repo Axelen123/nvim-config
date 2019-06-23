@@ -114,7 +114,7 @@ call defx#custom#option('_', {
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
   \'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \'svelte': ['svelteserver']
+  \'svelte': ['bash', '-c', '. ~/.nvm/nvm.sh && nvm exec svelteserver']
 \}
 let g:LanguageClient_rootMarkers = {
   \'svelte': ['package.json'],
