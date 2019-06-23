@@ -3,7 +3,6 @@ if &compatible
 endif
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-
 if dein#load_state('~/.config/nvim/dein')
   call dein#begin('~/.config/nvim/dein')
 
@@ -26,6 +25,10 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('deoplete-plugins/deoplete-clang')
   call dein#add('deoplete-plugins/deoplete-docker')
   call dein#add('deoplete-plugins/deoplete-zsh')
+  call dein#add('autozimu/LanguageClient-neovim', {
+    \'rev': 'next',
+    \'build': 'bash install.sh',
+  \})
 
   " defx
   call dein#add('kristijanhusak/defx-icons')
@@ -54,6 +57,7 @@ if dein#load_state('~/.config/nvim/dein')
 
 
   " other
+  call dein#add('burner/vim-svelte')
   call dein#add('rakr/vim-one')
   call dein#add('w0rp/ale')
   call dein#add('jiangmiao/auto-pairs')
@@ -69,7 +73,14 @@ endif
 
 call deoplete#custom#option('sources', {
 \ '_': ['ale'],
+\ 'rust': ['LanguageClient', 'ale'],
+\ 'svelte': ['LanguageClient', 'ale']
 \})
+call deoplete#custom#source('LanguageClient', 'rank', 500)
+call deoplete#custom#source('LanguageClient',
+  \'min_pattern_length',
+\1)
+call deoplete#custom#source('LanguageClient', 'sorters', [])
 
 filetype plugin indent on
 syntax enable
@@ -99,6 +110,16 @@ autocmd Filetype svelte setlocal ts=2 sts=2 sw=2
 call defx#custom#option('_', {
 	\'columns': 'git:mark:indent:icons:filename:type',
 \})
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+  \'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \'svelte': ['svelteserver']
+\}
+let g:LanguageClient_rootMarkers = {
+  \'svelte': ['package.json'],
+  \'rust': ['Cargo.toml'],
+\}
 
 let g:deoplete#enable_at_startup = 1
 let g:defx_git#indicators = {
