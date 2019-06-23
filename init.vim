@@ -36,15 +36,19 @@ if dein#load_state('~/.config/nvim/dein')
   " call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('scrooloose/syntastic')
+
+  " tpope
+  call dein#add('tpope/vim-eunuch')
+  call dein#add('tpope/vim-surround', {'on_map': {'n' : ['cs', 'ds', 'ys']}})
   
   " airline
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
 
+
   " other
   call dein#add('rakr/vim-one')
   call dein#add('w0rp/ale')
-  call dein#add('tpope/vim-surround', {'on_map': {'n' : ['cs', 'ds', 'ys']}})
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'svelte']})
   call dein#add('sheerun/vim-polyglot')
