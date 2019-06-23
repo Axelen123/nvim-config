@@ -31,6 +31,11 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('kristijanhusak/defx-icons')
   call dein#add('kristijanhusak/defx-git')
 
+  " denite
+  call dein#add('neoclide/denite-git')
+  call dein#add('neoclide/denite-extra')
+  call dein#add('neoclide/npm.nvim')
+
   " typescript
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
