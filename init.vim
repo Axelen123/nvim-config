@@ -42,6 +42,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('vim-airline/vim-airline-themes')
 
   " other
+  call dein#add('rakr/vim-one')
   call dein#add('w0rp/ale')
   call dein#add('tpope/vim-surround', {'on_map': {'n' : ['cs', 'ds', 'ys']}})
   call dein#add('jiangmiao/auto-pairs')
@@ -62,6 +63,10 @@ call deoplete#custom#option('sources', {
 
 filetype plugin indent on
 syntax enable
+colorscheme one
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+set background=dark
 set number
 set relativenumber
 set incsearch
@@ -81,7 +86,7 @@ autocmd Filetype svelte setlocal ts=2 sts=2 sw=2
 
 let g:deoplete#enable_at_startup = 1
 let g:ruby_host_prog = 'rvm all do neovim-ruby-host'
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'one'
 let g:airline_powerline_fonts = 1
 let b:ale_linter_aliases = {'svelte': ['javascript']}
 let b:ale_linters = {'javascript': ['eslint'], 'typescript': ['tsserver', 'eslint'], 'svelte': ['eslint']}
