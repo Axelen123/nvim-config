@@ -99,7 +99,7 @@ let b:ale_linters = {
   \'javascript': ['tsserver', 'eslint'],
   \'typescript': ['tsserver', 'eslint'],
   \'svelte': ['eslint'],
-  \'go': ['gobuild','golint', 'gofmt'],
+  \'go': ['gobuild', 'golint', 'gofmt'],
   \'python': 'pylint'
 \}
 let b:ale_fixers = {
