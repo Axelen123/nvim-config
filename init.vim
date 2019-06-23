@@ -26,6 +26,10 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('deoplete-plugins/deoplete-clang')
   call dein#add('deoplete-plugins/deoplete-docker')
   call dein#add('deoplete-plugins/deoplete-zsh')
+
+  " defx
+  call dein#add('kristijanhusak/defx-icons')
+  call dein#add('kristijanhusak/defx-git')
   
   " typescript
   call dein#add('HerringtonDarkholme/yats.vim')
@@ -88,7 +92,30 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 autocmd Filetype svelte setlocal ts=2 sts=2 sw=2
 
+cnoreabbrev Defx Defx -columns=git:mark:icons:filename:type
+
 let g:deoplete#enable_at_startup = 1
+let g:defx_git#indicators = {
+  \'Modified'  : '✹',
+  \'Staged'    : '✚',
+  \'Untracked' : '✭',
+  \'Renamed'   : '➜',
+  \'Unmerged'  : '═',
+  \'Ignored'   : '☒',
+  \'Deleted'   : '✖',
+  \'Unknown'   : '?'
+\}
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 2
+let g:defx_icons_directory_icon = ''
+let g:defx_icons_mark_icon = '*'
+let g:defx_icons_parent_icon = ''
+let g:defx_icons_default_icon = ''
+let g:defx_icons_directory_symlink_icon = ''
+" Options below are applicable only when using "tree" feature
+let g:defx_icons_root_opened_tree_icon = ''
+let g:defx_icons_nested_opened_tree_icon = ''
+let g:defx_icons_nested_closed_tree_icon = ''
 let g:ruby_host_prog = 'rvm all do neovim-ruby-host'
 let g:airline_theme = 'one'
 let g:airline_powerline_fonts = 1
