@@ -21,8 +21,8 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('Shougo/neosnippet-snippets')
 
   " deoplete
-  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make', 'on_ft': 'go'})
-  call dein#add('deoplete-plugins/deoplete-jedi', {'on_ft': 'python'})
+  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
+  call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('deoplete-plugins/deoplete-clang')
   call dein#add('deoplete-plugins/deoplete-docker')
   call dein#add('deoplete-plugins/deoplete-zsh')
@@ -30,10 +30,10 @@ if dein#load_state('~/.config/nvim/dein')
   " defx
   call dein#add('kristijanhusak/defx-icons')
   call dein#add('kristijanhusak/defx-git')
-  
+
   " typescript
   call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['typescript', 'svelte']})
+  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 
   " scrooloose
   " commented bc defx
@@ -54,7 +54,7 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('rakr/vim-one')
   call dein#add('w0rp/ale')
   call dein#add('jiangmiao/auto-pairs')
-  call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'svelte']})
+  call dein#add('mattn/emmet-vim')
   call dein#add('sheerun/vim-polyglot')
 
   call dein#end()
@@ -161,6 +161,22 @@ function! Open(context) abort
     call defx#call_action('open', 'vsplit')
     vertical resize +50
   endif
+endfunction
+
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> <Delete>
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
 endfunction
 
 function! s:defx_my_settings() abort
