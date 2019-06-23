@@ -74,6 +74,7 @@ syntax enable
 colorscheme one
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set splitright
+set splitbelow
 set termguicolors
 set background=dark
 set number
@@ -145,6 +146,13 @@ augroup defxConfig
   autocmd!
   autocmd FileType defx call s:defx_my_settings()
 augroup END
+
+function! Term() abort
+  20sp
+  Deol
+endfunction
+
+nnoremap <C-t> :call Term()<CR>
 
 function! Open(context) abort
   if defx#is_directory()
