@@ -41,8 +41,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 
   " scrooloose
-  " commented bc defx
-  " call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('scrooloose/syntastic')
 
@@ -60,7 +58,6 @@ if dein#load_state('~/.config/nvim/dein')
   call dein#add('w0rp/ale')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('mattn/emmet-vim')
-  call dein#add('sheerun/vim-polyglot')
 
   call dein#end()
   call dein#save_state()
