@@ -1,6 +1,6 @@
 # nvim-config
 
-My NeoVim Configuration
+Moved to https://github.com/Axelen123/dotfiles
 
 ## Prerequisites
 - [rvm](https://rvm.io)
